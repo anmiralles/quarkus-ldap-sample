@@ -32,6 +32,13 @@ And create a local folder called "ldifs" with the linked file inside:
 
 https://github.com/quarkusio/quarkus/blob/main/test-framework/ldap/src/main/resources/quarkus-io.ldif
 
+Once the ldap server is up and running we can check everything is ok, just searching:
+
+```
+ldapsearch -x -b dc=quarkus,dc=io -H ldap://0.0.0.0:1389
+ldapsearch -L -b dc=quarkus,dc=io -s sub -x -D uid=adminUser,ou=Users,dc=quarkus,dc=io -w adminUserPassword \
+ -H ldap://localhost:1389
+```
 
 ## Running the application in dev mode
 
